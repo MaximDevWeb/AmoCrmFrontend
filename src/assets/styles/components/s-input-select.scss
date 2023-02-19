@@ -1,0 +1,71 @@
+@use "../variable";
+@use "../mixins";
+
+.s-input-select {
+  position: relative;
+}
+
+.s-input-select__field {
+  @include mixins.input;
+
+  position: relative;
+  padding: 0 1.875rem 0 0.5rem;
+
+  img {
+    position: absolute;
+    right: 0.5rem;
+    height: 20px;
+    width: 20px;
+    transition: transform 0.2s;
+  }
+}
+
+.s-input-select__options {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: calc(100% + 0.5rem);
+  background-color: white;
+  border: variable.$border;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  z-index: 50;
+
+  @include mixins.invisible;
+}
+
+.s-input-select__option {
+  padding: 0.25rem 0.5rem;
+  cursor: pointer;
+
+  &:hover {
+    background-color: variable.$bg;
+  }
+
+  &:first-child {
+    padding-top: 0.5rem;
+  }
+
+  &:last-child {
+    padding-bottom: 0.5rem;
+  }
+}
+
+.s-input-select__option_active {
+  pointer-events: none;
+  background: rgba(variable.$primary, 0.1);
+}
+
+.s-input-select_active {
+  .s-input-select__field {
+    border-color: variable.$primary;
+
+    img {
+      transform: rotate(180deg);
+    }
+  }
+
+  .s-input-select__options {
+    @include mixins.visible;
+  }
+}

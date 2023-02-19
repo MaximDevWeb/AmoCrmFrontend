@@ -1,0 +1,8 @@
+@use "../variable";
+@use "../mixins";
+
+.s-input-text {
+  input {
+    @include mixins.input;
+  }
+}

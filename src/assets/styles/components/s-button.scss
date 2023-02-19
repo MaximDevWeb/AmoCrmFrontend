@@ -1,0 +1,97 @@
+@use "../variable";
+@use "../mixins";
+
+.s-button {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  flex: none;
+  height: 2.25rem;
+  width: auto;
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-decoration: none;
+  padding: 0 1rem;
+  box-sizing: border-box;
+  border: none;
+  color: #fff;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.s-button__loader {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 10;
+
+  img {
+    margin-top: 6px;
+    height: 24px;
+    width: 24px;
+  }
+}
+
+// Button inactive
+.s-button_inactive {
+  @include mixins.inactive;
+}
+
+// Button colors
+
+.s-button_primary {
+  background-color: variable.$primary;
+
+  &:hover,
+  &:active {
+    background-color: variable.$primary-hover;
+  }
+
+  .s-button__loader {
+    background-color: variable.$primary;
+  }
+}
+
+.s-button_secondary {
+  background-color: variable.$secondary;
+  font-weight: 500;
+
+  &:hover,
+  &:active {
+    background-color: variable.$secondary-hover;
+  }
+}
+
+.s-button_danger {
+  background-color: variable.$danger;
+
+  &:hover,
+  &:active {
+    background-color: variable.$danger-hover;
+  }
+}
+
+.s-button_light {
+  color: variable.$primary-text;
+  background-color: variable.$light;
+
+  &:hover,
+  &:active {
+    background-color: variable.$light-hover;
+  }
+}
+
+//Button size
+.s-button_sm {
+  height: 1.875rem;
+  padding: 0 0.875rem;
+  font-size: 0.75rem;
+
+  .icon {
+    height: 1rem;
+  }
+}

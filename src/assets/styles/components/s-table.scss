@@ -1,0 +1,35 @@
+@use "../variable";
+
+.s-table {
+  width: 100%;
+  border-collapse: collapse;
+
+  thead {
+    font-size: 0.875rem;
+  }
+
+  tr {
+    td,
+    th {
+      text-align: left;
+      padding: 10px 5px;
+
+      &:first-child {
+        width: 100px;
+      }
+
+      &:last-child {
+        width: 200px;
+      }
+    }
+    th {
+      border-bottom: variable.$border;
+    }
+
+    &:nth-child(even) {
+      td {
+        background-color: variable.$bg;
+      }
+    }
+  }
+}

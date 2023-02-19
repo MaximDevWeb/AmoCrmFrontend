@@ -1,0 +1,43 @@
+@use "variable";
+
+@mixin hide-input {
+  position: fixed;
+  opacity: 0;
+  top: -1000px;
+}
+
+@mixin input {
+  display: flex;
+  align-items: center;
+  flex: none;
+  height: 2.25rem;
+  min-width: 200px;
+  width: 100%;
+  padding: 0 0.5rem;
+  box-sizing: border-box;
+  border: variable.$border;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  outline: none;
+
+  &:focus {
+    border-color: variable.$primary;
+  }
+}
+
+@mixin invisible {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s, visibility 0.2s;
+}
+
+@mixin visible {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.2s, visibility 0.2s;
+}
+
+@mixin inactive {
+  opacity: 0.8;
+  pointer-events: none;
+}
